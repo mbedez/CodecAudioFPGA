@@ -1,4 +1,12 @@
-|Compteur26bit
+|TP4_CODEC_audio
+LEDR[14] <= Compteur26bit:inst.msb4
+LEDR[15] <= Compteur26bit:inst.msb3
+LEDR[16] <= Compteur26bit:inst.msb2
+LEDR[17] <= Compteur26bit:inst.msb1
+CLOCK_50 => Compteur26bit:inst.ck_50
+
+
+|TP4_CODEC_audio|Compteur26bit:inst
 ck_50 => qsig[0].CLK
 ck_50 => qsig[1].CLK
 ck_50 => qsig[2].CLK

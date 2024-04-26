@@ -4,27 +4,23 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "msb1",
+					"name" : "LEDR[17]",
 					"strict" : false
 				},
 				{
-					"name" : "msb2",
+					"name" : "LEDR[16]",
 					"strict" : false
 				},
 				{
-					"name" : "msb3",
+					"name" : "LEDR[15]",
 					"strict" : false
 				},
 				{
-					"name" : "msb4",
+					"name" : "LEDR[14]",
 					"strict" : false
 				},
 				{
-					"name" : "ck_50",
-					"strict" : false
-				},
-				{
-					"name" : "rst",
+					"name" : "CLOCK_50",
 					"strict" : false
 				}
 			]

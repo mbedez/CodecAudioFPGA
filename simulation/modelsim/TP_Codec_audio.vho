@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "04/26/2024 09:43:39"
+-- DATE "04/26/2024 10:22:19"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -76,27 +76,22 @@ USE ALTERA.ALTERA_PRIMITIVES_COMPONENTS.ALL;
 USE CYCLONEIVE.CYCLONEIVE_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY 	Compteur26bit IS
+ENTITY 	TP4_CODEC_audio IS
     PORT (
-	ck_50 : IN std_logic;
-	rst : IN std_logic;
-	msb1 : OUT std_logic;
-	msb2 : OUT std_logic;
-	msb3 : OUT std_logic;
-	msb4 : OUT std_logic
+	LEDR : OUT std_logic_vector(17 DOWNTO 14);
+	CLOCK_50 : IN std_logic
 	);
-END Compteur26bit;
+END TP4_CODEC_audio;
 
 -- Design Ports Information
--- msb1	=>  Location: PIN_L1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- msb2	=>  Location: PIN_L2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- msb3	=>  Location: PIN_M2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- msb4	=>  Location: PIN_M1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- ck_50	=>  Location: PIN_J1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- rst	=>  Location: PIN_Y2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- LEDR[17]	=>  Location: PIN_H15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- LEDR[16]	=>  Location: PIN_G16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- LEDR[15]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- LEDR[14]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- CLOCK_50	=>  Location: PIN_Y2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 
 
-ARCHITECTURE structure OF Compteur26bit IS
+ARCHITECTURE structure OF TP4_CODEC_audio IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -106,74 +101,66 @@ SIGNAL devpor : std_logic := '1';
 SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
-SIGNAL ww_ck_50 : std_logic;
-SIGNAL ww_rst : std_logic;
-SIGNAL ww_msb1 : std_logic;
-SIGNAL ww_msb2 : std_logic;
-SIGNAL ww_msb3 : std_logic;
-SIGNAL ww_msb4 : std_logic;
-SIGNAL \rst~inputclkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \ck_50~inputclkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \msb1~output_o\ : std_logic;
-SIGNAL \msb2~output_o\ : std_logic;
-SIGNAL \msb3~output_o\ : std_logic;
-SIGNAL \msb4~output_o\ : std_logic;
-SIGNAL \ck_50~input_o\ : std_logic;
-SIGNAL \ck_50~inputclkctrl_outclk\ : std_logic;
-SIGNAL \qsig[0]~75_combout\ : std_logic;
-SIGNAL \rst~input_o\ : std_logic;
-SIGNAL \rst~inputclkctrl_outclk\ : std_logic;
-SIGNAL \qsig[1]~25_combout\ : std_logic;
-SIGNAL \qsig[1]~26\ : std_logic;
-SIGNAL \qsig[2]~27_combout\ : std_logic;
-SIGNAL \qsig[2]~28\ : std_logic;
-SIGNAL \qsig[3]~29_combout\ : std_logic;
-SIGNAL \qsig[3]~30\ : std_logic;
-SIGNAL \qsig[4]~31_combout\ : std_logic;
-SIGNAL \qsig[4]~32\ : std_logic;
-SIGNAL \qsig[5]~33_combout\ : std_logic;
-SIGNAL \qsig[5]~34\ : std_logic;
-SIGNAL \qsig[6]~35_combout\ : std_logic;
-SIGNAL \qsig[6]~36\ : std_logic;
-SIGNAL \qsig[7]~37_combout\ : std_logic;
-SIGNAL \qsig[7]~38\ : std_logic;
-SIGNAL \qsig[8]~39_combout\ : std_logic;
-SIGNAL \qsig[8]~40\ : std_logic;
-SIGNAL \qsig[9]~41_combout\ : std_logic;
-SIGNAL \qsig[9]~42\ : std_logic;
-SIGNAL \qsig[10]~43_combout\ : std_logic;
-SIGNAL \qsig[10]~44\ : std_logic;
-SIGNAL \qsig[11]~45_combout\ : std_logic;
-SIGNAL \qsig[11]~46\ : std_logic;
-SIGNAL \qsig[12]~47_combout\ : std_logic;
-SIGNAL \qsig[12]~48\ : std_logic;
-SIGNAL \qsig[13]~49_combout\ : std_logic;
-SIGNAL \qsig[13]~50\ : std_logic;
-SIGNAL \qsig[14]~51_combout\ : std_logic;
-SIGNAL \qsig[14]~52\ : std_logic;
-SIGNAL \qsig[15]~53_combout\ : std_logic;
-SIGNAL \qsig[15]~54\ : std_logic;
-SIGNAL \qsig[16]~55_combout\ : std_logic;
-SIGNAL \qsig[16]~56\ : std_logic;
-SIGNAL \qsig[17]~57_combout\ : std_logic;
-SIGNAL \qsig[17]~58\ : std_logic;
-SIGNAL \qsig[18]~59_combout\ : std_logic;
-SIGNAL \qsig[18]~60\ : std_logic;
-SIGNAL \qsig[19]~61_combout\ : std_logic;
-SIGNAL \qsig[19]~62\ : std_logic;
-SIGNAL \qsig[20]~63_combout\ : std_logic;
-SIGNAL \qsig[20]~64\ : std_logic;
-SIGNAL \qsig[21]~65_combout\ : std_logic;
-SIGNAL \qsig[21]~66\ : std_logic;
-SIGNAL \qsig[22]~67_combout\ : std_logic;
-SIGNAL \qsig[22]~68\ : std_logic;
-SIGNAL \qsig[23]~69_combout\ : std_logic;
-SIGNAL \qsig[23]~70\ : std_logic;
-SIGNAL \qsig[24]~71_combout\ : std_logic;
-SIGNAL \qsig[24]~72\ : std_logic;
-SIGNAL \qsig[25]~73_combout\ : std_logic;
-SIGNAL qsig : std_logic_vector(25 DOWNTO 0);
-SIGNAL \ALT_INV_rst~inputclkctrl_outclk\ : std_logic;
+SIGNAL ww_LEDR : std_logic_vector(17 DOWNTO 14);
+SIGNAL ww_CLOCK_50 : std_logic;
+SIGNAL \CLOCK_50~inputclkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \LEDR[17]~output_o\ : std_logic;
+SIGNAL \LEDR[16]~output_o\ : std_logic;
+SIGNAL \LEDR[15]~output_o\ : std_logic;
+SIGNAL \LEDR[14]~output_o\ : std_logic;
+SIGNAL \CLOCK_50~input_o\ : std_logic;
+SIGNAL \CLOCK_50~inputclkctrl_outclk\ : std_logic;
+SIGNAL \inst|qsig[0]~75_combout\ : std_logic;
+SIGNAL \inst|qsig[1]~25_combout\ : std_logic;
+SIGNAL \inst|qsig[1]~26\ : std_logic;
+SIGNAL \inst|qsig[2]~27_combout\ : std_logic;
+SIGNAL \inst|qsig[2]~28\ : std_logic;
+SIGNAL \inst|qsig[3]~29_combout\ : std_logic;
+SIGNAL \inst|qsig[3]~30\ : std_logic;
+SIGNAL \inst|qsig[4]~31_combout\ : std_logic;
+SIGNAL \inst|qsig[4]~32\ : std_logic;
+SIGNAL \inst|qsig[5]~33_combout\ : std_logic;
+SIGNAL \inst|qsig[5]~34\ : std_logic;
+SIGNAL \inst|qsig[6]~35_combout\ : std_logic;
+SIGNAL \inst|qsig[6]~36\ : std_logic;
+SIGNAL \inst|qsig[7]~37_combout\ : std_logic;
+SIGNAL \inst|qsig[7]~38\ : std_logic;
+SIGNAL \inst|qsig[8]~39_combout\ : std_logic;
+SIGNAL \inst|qsig[8]~40\ : std_logic;
+SIGNAL \inst|qsig[9]~41_combout\ : std_logic;
+SIGNAL \inst|qsig[9]~42\ : std_logic;
+SIGNAL \inst|qsig[10]~43_combout\ : std_logic;
+SIGNAL \inst|qsig[10]~44\ : std_logic;
+SIGNAL \inst|qsig[11]~45_combout\ : std_logic;
+SIGNAL \inst|qsig[11]~46\ : std_logic;
+SIGNAL \inst|qsig[12]~47_combout\ : std_logic;
+SIGNAL \inst|qsig[12]~48\ : std_logic;
+SIGNAL \inst|qsig[13]~49_combout\ : std_logic;
+SIGNAL \inst|qsig[13]~50\ : std_logic;
+SIGNAL \inst|qsig[14]~51_combout\ : std_logic;
+SIGNAL \inst|qsig[14]~52\ : std_logic;
+SIGNAL \inst|qsig[15]~53_combout\ : std_logic;
+SIGNAL \inst|qsig[15]~54\ : std_logic;
+SIGNAL \inst|qsig[16]~55_combout\ : std_logic;
+SIGNAL \inst|qsig[16]~56\ : std_logic;
+SIGNAL \inst|qsig[17]~57_combout\ : std_logic;
+SIGNAL \inst|qsig[17]~58\ : std_logic;
+SIGNAL \inst|qsig[18]~59_combout\ : std_logic;
+SIGNAL \inst|qsig[18]~60\ : std_logic;
+SIGNAL \inst|qsig[19]~61_combout\ : std_logic;
+SIGNAL \inst|qsig[19]~62\ : std_logic;
+SIGNAL \inst|qsig[20]~63_combout\ : std_logic;
+SIGNAL \inst|qsig[20]~64\ : std_logic;
+SIGNAL \inst|qsig[21]~65_combout\ : std_logic;
+SIGNAL \inst|qsig[21]~66\ : std_logic;
+SIGNAL \inst|qsig[22]~67_combout\ : std_logic;
+SIGNAL \inst|qsig[22]~68\ : std_logic;
+SIGNAL \inst|qsig[23]~69_combout\ : std_logic;
+SIGNAL \inst|qsig[23]~70\ : std_logic;
+SIGNAL \inst|qsig[24]~71_combout\ : std_logic;
+SIGNAL \inst|qsig[24]~72\ : std_logic;
+SIGNAL \inst|qsig[25]~73_combout\ : std_logic;
+SIGNAL \inst|qsig\ : std_logic_vector(25 DOWNTO 0);
 
 COMPONENT hard_block
     PORT (
@@ -184,102 +171,95 @@ END COMPONENT;
 
 BEGIN
 
-ww_ck_50 <= ck_50;
-ww_rst <= rst;
-msb1 <= ww_msb1;
-msb2 <= ww_msb2;
-msb3 <= ww_msb3;
-msb4 <= ww_msb4;
+LEDR <= ww_LEDR;
+ww_CLOCK_50 <= CLOCK_50;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
-\rst~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \rst~input_o\);
-
-\ck_50~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \ck_50~input_o\);
-\ALT_INV_rst~inputclkctrl_outclk\ <= NOT \rst~inputclkctrl_outclk\;
+\CLOCK_50~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \CLOCK_50~input_o\);
 auto_generated_inst : hard_block
 PORT MAP (
 	devoe => ww_devoe,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor);
 
--- Location: IOOBUF_X0_Y44_N9
-\msb1~output\ : cycloneive_io_obuf
+-- Location: IOOBUF_X60_Y73_N16
+\LEDR[17]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => qsig(25),
+	i => \inst|qsig\(25),
 	devoe => ww_devoe,
-	o => \msb1~output_o\);
+	o => \LEDR[17]~output_o\);
 
--- Location: IOOBUF_X0_Y44_N2
-\msb2~output\ : cycloneive_io_obuf
+-- Location: IOOBUF_X67_Y73_N2
+\LEDR[16]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => qsig(24),
+	i => \inst|qsig\(24),
 	devoe => ww_devoe,
-	o => \msb2~output_o\);
+	o => \LEDR[16]~output_o\);
 
--- Location: IOOBUF_X0_Y44_N16
-\msb3~output\ : cycloneive_io_obuf
+-- Location: IOOBUF_X65_Y73_N9
+\LEDR[15]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => qsig(23),
+	i => \inst|qsig\(23),
 	devoe => ww_devoe,
-	o => \msb3~output_o\);
+	o => \LEDR[15]~output_o\);
 
--- Location: IOOBUF_X0_Y44_N23
-\msb4~output\ : cycloneive_io_obuf
+-- Location: IOOBUF_X58_Y73_N2
+\LEDR[14]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => qsig(22),
+	i => \inst|qsig\(22),
 	devoe => ww_devoe,
-	o => \msb4~output_o\);
+	o => \LEDR[14]~output_o\);
 
--- Location: IOIBUF_X0_Y36_N8
-\ck_50~input\ : cycloneive_io_ibuf
+-- Location: IOIBUF_X0_Y36_N15
+\CLOCK_50~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_ck_50,
-	o => \ck_50~input_o\);
+	i => ww_CLOCK_50,
+	o => \CLOCK_50~input_o\);
 
--- Location: CLKCTRL_G2
-\ck_50~inputclkctrl\ : cycloneive_clkctrl
+-- Location: CLKCTRL_G4
+\CLOCK_50~inputclkctrl\ : cycloneive_clkctrl
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
 	ena_register_mode => "none")
 -- pragma translate_on
 PORT MAP (
-	inclk => \ck_50~inputclkctrl_INCLK_bus\,
+	inclk => \CLOCK_50~inputclkctrl_INCLK_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	outclk => \ck_50~inputclkctrl_outclk\);
+	outclk => \CLOCK_50~inputclkctrl_outclk\);
 
--- Location: LCCOMB_X1_Y45_N4
-\qsig[0]~75\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N4
+\inst|qsig[0]~75\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[0]~75_combout\ = !qsig(0)
+-- \inst|qsig[0]~75_combout\ = !\inst|qsig\(0)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -287,53 +267,28 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => qsig(0),
-	combout => \qsig[0]~75_combout\);
+	datac => \inst|qsig\(0),
+	combout => \inst|qsig[0]~75_combout\);
 
--- Location: IOIBUF_X0_Y36_N15
-\rst~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_rst,
-	o => \rst~input_o\);
-
--- Location: CLKCTRL_G4
-\rst~inputclkctrl\ : cycloneive_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \rst~inputclkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \rst~inputclkctrl_outclk\);
-
--- Location: FF_X1_Y45_N5
-\qsig[0]\ : dffeas
+-- Location: FF_X60_Y70_N5
+\inst|qsig[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[0]~75_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[0]~75_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(0));
+	q => \inst|qsig\(0));
 
--- Location: LCCOMB_X1_Y45_N8
-\qsig[1]~25\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N8
+\inst|qsig[1]~25\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[1]~25_combout\ = (qsig(1) & (qsig(0) $ (VCC))) # (!qsig(1) & (qsig(0) & VCC))
--- \qsig[1]~26\ = CARRY((qsig(1) & qsig(0)))
+-- \inst|qsig[1]~25_combout\ = (\inst|qsig\(1) & (\inst|qsig\(0) $ (VCC))) # (!\inst|qsig\(1) & (\inst|qsig\(0) & VCC))
+-- \inst|qsig[1]~26\ = CARRY((\inst|qsig\(1) & \inst|qsig\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -341,32 +296,31 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(1),
-	datab => qsig(0),
+	dataa => \inst|qsig\(1),
+	datab => \inst|qsig\(0),
 	datad => VCC,
-	combout => \qsig[1]~25_combout\,
-	cout => \qsig[1]~26\);
+	combout => \inst|qsig[1]~25_combout\,
+	cout => \inst|qsig[1]~26\);
 
--- Location: FF_X1_Y45_N9
-\qsig[1]\ : dffeas
+-- Location: FF_X60_Y70_N9
+\inst|qsig[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[1]~25_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[1]~25_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(1));
+	q => \inst|qsig\(1));
 
--- Location: LCCOMB_X1_Y45_N10
-\qsig[2]~27\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N10
+\inst|qsig[2]~27\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[2]~27_combout\ = (qsig(2) & (!\qsig[1]~26\)) # (!qsig(2) & ((\qsig[1]~26\) # (GND)))
--- \qsig[2]~28\ = CARRY((!\qsig[1]~26\) # (!qsig(2)))
+-- \inst|qsig[2]~27_combout\ = (\inst|qsig\(2) & (!\inst|qsig[1]~26\)) # (!\inst|qsig\(2) & ((\inst|qsig[1]~26\) # (GND)))
+-- \inst|qsig[2]~28\ = CARRY((!\inst|qsig[1]~26\) # (!\inst|qsig\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -374,32 +328,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(2),
+	dataa => \inst|qsig\(2),
 	datad => VCC,
-	cin => \qsig[1]~26\,
-	combout => \qsig[2]~27_combout\,
-	cout => \qsig[2]~28\);
+	cin => \inst|qsig[1]~26\,
+	combout => \inst|qsig[2]~27_combout\,
+	cout => \inst|qsig[2]~28\);
 
--- Location: FF_X1_Y45_N11
-\qsig[2]\ : dffeas
+-- Location: FF_X60_Y70_N11
+\inst|qsig[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[2]~27_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[2]~27_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(2));
+	q => \inst|qsig\(2));
 
--- Location: LCCOMB_X1_Y45_N12
-\qsig[3]~29\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N12
+\inst|qsig[3]~29\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[3]~29_combout\ = (qsig(3) & (\qsig[2]~28\ $ (GND))) # (!qsig(3) & (!\qsig[2]~28\ & VCC))
--- \qsig[3]~30\ = CARRY((qsig(3) & !\qsig[2]~28\))
+-- \inst|qsig[3]~29_combout\ = (\inst|qsig\(3) & (\inst|qsig[2]~28\ $ (GND))) # (!\inst|qsig\(3) & (!\inst|qsig[2]~28\ & VCC))
+-- \inst|qsig[3]~30\ = CARRY((\inst|qsig\(3) & !\inst|qsig[2]~28\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -407,32 +360,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(3),
+	dataa => \inst|qsig\(3),
 	datad => VCC,
-	cin => \qsig[2]~28\,
-	combout => \qsig[3]~29_combout\,
-	cout => \qsig[3]~30\);
+	cin => \inst|qsig[2]~28\,
+	combout => \inst|qsig[3]~29_combout\,
+	cout => \inst|qsig[3]~30\);
 
--- Location: FF_X1_Y45_N13
-\qsig[3]\ : dffeas
+-- Location: FF_X60_Y70_N13
+\inst|qsig[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[3]~29_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[3]~29_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(3));
+	q => \inst|qsig\(3));
 
--- Location: LCCOMB_X1_Y45_N14
-\qsig[4]~31\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N14
+\inst|qsig[4]~31\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[4]~31_combout\ = (qsig(4) & (!\qsig[3]~30\)) # (!qsig(4) & ((\qsig[3]~30\) # (GND)))
--- \qsig[4]~32\ = CARRY((!\qsig[3]~30\) # (!qsig(4)))
+-- \inst|qsig[4]~31_combout\ = (\inst|qsig\(4) & (!\inst|qsig[3]~30\)) # (!\inst|qsig\(4) & ((\inst|qsig[3]~30\) # (GND)))
+-- \inst|qsig[4]~32\ = CARRY((!\inst|qsig[3]~30\) # (!\inst|qsig\(4)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -440,32 +392,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(4),
+	datab => \inst|qsig\(4),
 	datad => VCC,
-	cin => \qsig[3]~30\,
-	combout => \qsig[4]~31_combout\,
-	cout => \qsig[4]~32\);
+	cin => \inst|qsig[3]~30\,
+	combout => \inst|qsig[4]~31_combout\,
+	cout => \inst|qsig[4]~32\);
 
--- Location: FF_X1_Y45_N15
-\qsig[4]\ : dffeas
+-- Location: FF_X60_Y70_N15
+\inst|qsig[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[4]~31_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[4]~31_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(4));
+	q => \inst|qsig\(4));
 
--- Location: LCCOMB_X1_Y45_N16
-\qsig[5]~33\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N16
+\inst|qsig[5]~33\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[5]~33_combout\ = (qsig(5) & (\qsig[4]~32\ $ (GND))) # (!qsig(5) & (!\qsig[4]~32\ & VCC))
--- \qsig[5]~34\ = CARRY((qsig(5) & !\qsig[4]~32\))
+-- \inst|qsig[5]~33_combout\ = (\inst|qsig\(5) & (\inst|qsig[4]~32\ $ (GND))) # (!\inst|qsig\(5) & (!\inst|qsig[4]~32\ & VCC))
+-- \inst|qsig[5]~34\ = CARRY((\inst|qsig\(5) & !\inst|qsig[4]~32\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -473,32 +424,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(5),
+	datab => \inst|qsig\(5),
 	datad => VCC,
-	cin => \qsig[4]~32\,
-	combout => \qsig[5]~33_combout\,
-	cout => \qsig[5]~34\);
+	cin => \inst|qsig[4]~32\,
+	combout => \inst|qsig[5]~33_combout\,
+	cout => \inst|qsig[5]~34\);
 
--- Location: FF_X1_Y45_N17
-\qsig[5]\ : dffeas
+-- Location: FF_X60_Y70_N17
+\inst|qsig[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[5]~33_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[5]~33_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(5));
+	q => \inst|qsig\(5));
 
--- Location: LCCOMB_X1_Y45_N18
-\qsig[6]~35\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N18
+\inst|qsig[6]~35\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[6]~35_combout\ = (qsig(6) & (!\qsig[5]~34\)) # (!qsig(6) & ((\qsig[5]~34\) # (GND)))
--- \qsig[6]~36\ = CARRY((!\qsig[5]~34\) # (!qsig(6)))
+-- \inst|qsig[6]~35_combout\ = (\inst|qsig\(6) & (!\inst|qsig[5]~34\)) # (!\inst|qsig\(6) & ((\inst|qsig[5]~34\) # (GND)))
+-- \inst|qsig[6]~36\ = CARRY((!\inst|qsig[5]~34\) # (!\inst|qsig\(6)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -506,32 +456,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(6),
+	datab => \inst|qsig\(6),
 	datad => VCC,
-	cin => \qsig[5]~34\,
-	combout => \qsig[6]~35_combout\,
-	cout => \qsig[6]~36\);
+	cin => \inst|qsig[5]~34\,
+	combout => \inst|qsig[6]~35_combout\,
+	cout => \inst|qsig[6]~36\);
 
--- Location: FF_X1_Y45_N19
-\qsig[6]\ : dffeas
+-- Location: FF_X60_Y70_N19
+\inst|qsig[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[6]~35_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[6]~35_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(6));
+	q => \inst|qsig\(6));
 
--- Location: LCCOMB_X1_Y45_N20
-\qsig[7]~37\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N20
+\inst|qsig[7]~37\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[7]~37_combout\ = (qsig(7) & (\qsig[6]~36\ $ (GND))) # (!qsig(7) & (!\qsig[6]~36\ & VCC))
--- \qsig[7]~38\ = CARRY((qsig(7) & !\qsig[6]~36\))
+-- \inst|qsig[7]~37_combout\ = (\inst|qsig\(7) & (\inst|qsig[6]~36\ $ (GND))) # (!\inst|qsig\(7) & (!\inst|qsig[6]~36\ & VCC))
+-- \inst|qsig[7]~38\ = CARRY((\inst|qsig\(7) & !\inst|qsig[6]~36\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -539,32 +488,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(7),
+	datab => \inst|qsig\(7),
 	datad => VCC,
-	cin => \qsig[6]~36\,
-	combout => \qsig[7]~37_combout\,
-	cout => \qsig[7]~38\);
+	cin => \inst|qsig[6]~36\,
+	combout => \inst|qsig[7]~37_combout\,
+	cout => \inst|qsig[7]~38\);
 
--- Location: FF_X1_Y45_N21
-\qsig[7]\ : dffeas
+-- Location: FF_X60_Y70_N21
+\inst|qsig[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[7]~37_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[7]~37_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(7));
+	q => \inst|qsig\(7));
 
--- Location: LCCOMB_X1_Y45_N22
-\qsig[8]~39\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N22
+\inst|qsig[8]~39\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[8]~39_combout\ = (qsig(8) & (!\qsig[7]~38\)) # (!qsig(8) & ((\qsig[7]~38\) # (GND)))
--- \qsig[8]~40\ = CARRY((!\qsig[7]~38\) # (!qsig(8)))
+-- \inst|qsig[8]~39_combout\ = (\inst|qsig\(8) & (!\inst|qsig[7]~38\)) # (!\inst|qsig\(8) & ((\inst|qsig[7]~38\) # (GND)))
+-- \inst|qsig[8]~40\ = CARRY((!\inst|qsig[7]~38\) # (!\inst|qsig\(8)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -572,32 +520,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(8),
+	dataa => \inst|qsig\(8),
 	datad => VCC,
-	cin => \qsig[7]~38\,
-	combout => \qsig[8]~39_combout\,
-	cout => \qsig[8]~40\);
+	cin => \inst|qsig[7]~38\,
+	combout => \inst|qsig[8]~39_combout\,
+	cout => \inst|qsig[8]~40\);
 
--- Location: FF_X1_Y45_N23
-\qsig[8]\ : dffeas
+-- Location: FF_X60_Y70_N23
+\inst|qsig[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[8]~39_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[8]~39_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(8));
+	q => \inst|qsig\(8));
 
--- Location: LCCOMB_X1_Y45_N24
-\qsig[9]~41\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N24
+\inst|qsig[9]~41\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[9]~41_combout\ = (qsig(9) & (\qsig[8]~40\ $ (GND))) # (!qsig(9) & (!\qsig[8]~40\ & VCC))
--- \qsig[9]~42\ = CARRY((qsig(9) & !\qsig[8]~40\))
+-- \inst|qsig[9]~41_combout\ = (\inst|qsig\(9) & (\inst|qsig[8]~40\ $ (GND))) # (!\inst|qsig\(9) & (!\inst|qsig[8]~40\ & VCC))
+-- \inst|qsig[9]~42\ = CARRY((\inst|qsig\(9) & !\inst|qsig[8]~40\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -605,32 +552,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(9),
+	datab => \inst|qsig\(9),
 	datad => VCC,
-	cin => \qsig[8]~40\,
-	combout => \qsig[9]~41_combout\,
-	cout => \qsig[9]~42\);
+	cin => \inst|qsig[8]~40\,
+	combout => \inst|qsig[9]~41_combout\,
+	cout => \inst|qsig[9]~42\);
 
--- Location: FF_X1_Y45_N25
-\qsig[9]\ : dffeas
+-- Location: FF_X60_Y70_N25
+\inst|qsig[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[9]~41_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[9]~41_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(9));
+	q => \inst|qsig\(9));
 
--- Location: LCCOMB_X1_Y45_N26
-\qsig[10]~43\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N26
+\inst|qsig[10]~43\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[10]~43_combout\ = (qsig(10) & (!\qsig[9]~42\)) # (!qsig(10) & ((\qsig[9]~42\) # (GND)))
--- \qsig[10]~44\ = CARRY((!\qsig[9]~42\) # (!qsig(10)))
+-- \inst|qsig[10]~43_combout\ = (\inst|qsig\(10) & (!\inst|qsig[9]~42\)) # (!\inst|qsig\(10) & ((\inst|qsig[9]~42\) # (GND)))
+-- \inst|qsig[10]~44\ = CARRY((!\inst|qsig[9]~42\) # (!\inst|qsig\(10)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -638,32 +584,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(10),
+	dataa => \inst|qsig\(10),
 	datad => VCC,
-	cin => \qsig[9]~42\,
-	combout => \qsig[10]~43_combout\,
-	cout => \qsig[10]~44\);
+	cin => \inst|qsig[9]~42\,
+	combout => \inst|qsig[10]~43_combout\,
+	cout => \inst|qsig[10]~44\);
 
--- Location: FF_X1_Y45_N27
-\qsig[10]\ : dffeas
+-- Location: FF_X60_Y70_N27
+\inst|qsig[10]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[10]~43_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[10]~43_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(10));
+	q => \inst|qsig\(10));
 
--- Location: LCCOMB_X1_Y45_N28
-\qsig[11]~45\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N28
+\inst|qsig[11]~45\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[11]~45_combout\ = (qsig(11) & (\qsig[10]~44\ $ (GND))) # (!qsig(11) & (!\qsig[10]~44\ & VCC))
--- \qsig[11]~46\ = CARRY((qsig(11) & !\qsig[10]~44\))
+-- \inst|qsig[11]~45_combout\ = (\inst|qsig\(11) & (\inst|qsig[10]~44\ $ (GND))) # (!\inst|qsig\(11) & (!\inst|qsig[10]~44\ & VCC))
+-- \inst|qsig[11]~46\ = CARRY((\inst|qsig\(11) & !\inst|qsig[10]~44\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -671,32 +616,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(11),
+	datab => \inst|qsig\(11),
 	datad => VCC,
-	cin => \qsig[10]~44\,
-	combout => \qsig[11]~45_combout\,
-	cout => \qsig[11]~46\);
+	cin => \inst|qsig[10]~44\,
+	combout => \inst|qsig[11]~45_combout\,
+	cout => \inst|qsig[11]~46\);
 
--- Location: FF_X1_Y45_N29
-\qsig[11]\ : dffeas
+-- Location: FF_X60_Y70_N29
+\inst|qsig[11]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[11]~45_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[11]~45_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(11));
+	q => \inst|qsig\(11));
 
--- Location: LCCOMB_X1_Y45_N30
-\qsig[12]~47\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y70_N30
+\inst|qsig[12]~47\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[12]~47_combout\ = (qsig(12) & (!\qsig[11]~46\)) # (!qsig(12) & ((\qsig[11]~46\) # (GND)))
--- \qsig[12]~48\ = CARRY((!\qsig[11]~46\) # (!qsig(12)))
+-- \inst|qsig[12]~47_combout\ = (\inst|qsig\(12) & (!\inst|qsig[11]~46\)) # (!\inst|qsig\(12) & ((\inst|qsig[11]~46\) # (GND)))
+-- \inst|qsig[12]~48\ = CARRY((!\inst|qsig[11]~46\) # (!\inst|qsig\(12)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -704,32 +648,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(12),
+	dataa => \inst|qsig\(12),
 	datad => VCC,
-	cin => \qsig[11]~46\,
-	combout => \qsig[12]~47_combout\,
-	cout => \qsig[12]~48\);
+	cin => \inst|qsig[11]~46\,
+	combout => \inst|qsig[12]~47_combout\,
+	cout => \inst|qsig[12]~48\);
 
--- Location: FF_X1_Y45_N31
-\qsig[12]\ : dffeas
+-- Location: FF_X60_Y70_N31
+\inst|qsig[12]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[12]~47_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[12]~47_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(12));
+	q => \inst|qsig\(12));
 
--- Location: LCCOMB_X1_Y44_N0
-\qsig[13]~49\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N0
+\inst|qsig[13]~49\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[13]~49_combout\ = (qsig(13) & (\qsig[12]~48\ $ (GND))) # (!qsig(13) & (!\qsig[12]~48\ & VCC))
--- \qsig[13]~50\ = CARRY((qsig(13) & !\qsig[12]~48\))
+-- \inst|qsig[13]~49_combout\ = (\inst|qsig\(13) & (\inst|qsig[12]~48\ $ (GND))) # (!\inst|qsig\(13) & (!\inst|qsig[12]~48\ & VCC))
+-- \inst|qsig[13]~50\ = CARRY((\inst|qsig\(13) & !\inst|qsig[12]~48\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -737,32 +680,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(13),
+	datab => \inst|qsig\(13),
 	datad => VCC,
-	cin => \qsig[12]~48\,
-	combout => \qsig[13]~49_combout\,
-	cout => \qsig[13]~50\);
+	cin => \inst|qsig[12]~48\,
+	combout => \inst|qsig[13]~49_combout\,
+	cout => \inst|qsig[13]~50\);
 
--- Location: FF_X1_Y44_N1
-\qsig[13]\ : dffeas
+-- Location: FF_X60_Y69_N1
+\inst|qsig[13]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[13]~49_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[13]~49_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(13));
+	q => \inst|qsig\(13));
 
--- Location: LCCOMB_X1_Y44_N2
-\qsig[14]~51\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N2
+\inst|qsig[14]~51\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[14]~51_combout\ = (qsig(14) & (!\qsig[13]~50\)) # (!qsig(14) & ((\qsig[13]~50\) # (GND)))
--- \qsig[14]~52\ = CARRY((!\qsig[13]~50\) # (!qsig(14)))
+-- \inst|qsig[14]~51_combout\ = (\inst|qsig\(14) & (!\inst|qsig[13]~50\)) # (!\inst|qsig\(14) & ((\inst|qsig[13]~50\) # (GND)))
+-- \inst|qsig[14]~52\ = CARRY((!\inst|qsig[13]~50\) # (!\inst|qsig\(14)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -770,32 +712,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(14),
+	datab => \inst|qsig\(14),
 	datad => VCC,
-	cin => \qsig[13]~50\,
-	combout => \qsig[14]~51_combout\,
-	cout => \qsig[14]~52\);
+	cin => \inst|qsig[13]~50\,
+	combout => \inst|qsig[14]~51_combout\,
+	cout => \inst|qsig[14]~52\);
 
--- Location: FF_X1_Y44_N3
-\qsig[14]\ : dffeas
+-- Location: FF_X60_Y69_N3
+\inst|qsig[14]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[14]~51_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[14]~51_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(14));
+	q => \inst|qsig\(14));
 
--- Location: LCCOMB_X1_Y44_N4
-\qsig[15]~53\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N4
+\inst|qsig[15]~53\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[15]~53_combout\ = (qsig(15) & (\qsig[14]~52\ $ (GND))) # (!qsig(15) & (!\qsig[14]~52\ & VCC))
--- \qsig[15]~54\ = CARRY((qsig(15) & !\qsig[14]~52\))
+-- \inst|qsig[15]~53_combout\ = (\inst|qsig\(15) & (\inst|qsig[14]~52\ $ (GND))) # (!\inst|qsig\(15) & (!\inst|qsig[14]~52\ & VCC))
+-- \inst|qsig[15]~54\ = CARRY((\inst|qsig\(15) & !\inst|qsig[14]~52\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -803,32 +744,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(15),
+	datab => \inst|qsig\(15),
 	datad => VCC,
-	cin => \qsig[14]~52\,
-	combout => \qsig[15]~53_combout\,
-	cout => \qsig[15]~54\);
+	cin => \inst|qsig[14]~52\,
+	combout => \inst|qsig[15]~53_combout\,
+	cout => \inst|qsig[15]~54\);
 
--- Location: FF_X1_Y44_N5
-\qsig[15]\ : dffeas
+-- Location: FF_X60_Y69_N5
+\inst|qsig[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[15]~53_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[15]~53_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(15));
+	q => \inst|qsig\(15));
 
--- Location: LCCOMB_X1_Y44_N6
-\qsig[16]~55\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N6
+\inst|qsig[16]~55\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[16]~55_combout\ = (qsig(16) & (!\qsig[15]~54\)) # (!qsig(16) & ((\qsig[15]~54\) # (GND)))
--- \qsig[16]~56\ = CARRY((!\qsig[15]~54\) # (!qsig(16)))
+-- \inst|qsig[16]~55_combout\ = (\inst|qsig\(16) & (!\inst|qsig[15]~54\)) # (!\inst|qsig\(16) & ((\inst|qsig[15]~54\) # (GND)))
+-- \inst|qsig[16]~56\ = CARRY((!\inst|qsig[15]~54\) # (!\inst|qsig\(16)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -836,32 +776,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(16),
+	dataa => \inst|qsig\(16),
 	datad => VCC,
-	cin => \qsig[15]~54\,
-	combout => \qsig[16]~55_combout\,
-	cout => \qsig[16]~56\);
+	cin => \inst|qsig[15]~54\,
+	combout => \inst|qsig[16]~55_combout\,
+	cout => \inst|qsig[16]~56\);
 
--- Location: FF_X1_Y44_N7
-\qsig[16]\ : dffeas
+-- Location: FF_X60_Y69_N7
+\inst|qsig[16]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[16]~55_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[16]~55_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(16));
+	q => \inst|qsig\(16));
 
--- Location: LCCOMB_X1_Y44_N8
-\qsig[17]~57\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N8
+\inst|qsig[17]~57\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[17]~57_combout\ = (qsig(17) & (\qsig[16]~56\ $ (GND))) # (!qsig(17) & (!\qsig[16]~56\ & VCC))
--- \qsig[17]~58\ = CARRY((qsig(17) & !\qsig[16]~56\))
+-- \inst|qsig[17]~57_combout\ = (\inst|qsig\(17) & (\inst|qsig[16]~56\ $ (GND))) # (!\inst|qsig\(17) & (!\inst|qsig[16]~56\ & VCC))
+-- \inst|qsig[17]~58\ = CARRY((\inst|qsig\(17) & !\inst|qsig[16]~56\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -869,32 +808,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(17),
+	datab => \inst|qsig\(17),
 	datad => VCC,
-	cin => \qsig[16]~56\,
-	combout => \qsig[17]~57_combout\,
-	cout => \qsig[17]~58\);
+	cin => \inst|qsig[16]~56\,
+	combout => \inst|qsig[17]~57_combout\,
+	cout => \inst|qsig[17]~58\);
 
--- Location: FF_X1_Y44_N9
-\qsig[17]\ : dffeas
+-- Location: FF_X60_Y69_N9
+\inst|qsig[17]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[17]~57_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[17]~57_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(17));
+	q => \inst|qsig\(17));
 
--- Location: LCCOMB_X1_Y44_N10
-\qsig[18]~59\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N10
+\inst|qsig[18]~59\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[18]~59_combout\ = (qsig(18) & (!\qsig[17]~58\)) # (!qsig(18) & ((\qsig[17]~58\) # (GND)))
--- \qsig[18]~60\ = CARRY((!\qsig[17]~58\) # (!qsig(18)))
+-- \inst|qsig[18]~59_combout\ = (\inst|qsig\(18) & (!\inst|qsig[17]~58\)) # (!\inst|qsig\(18) & ((\inst|qsig[17]~58\) # (GND)))
+-- \inst|qsig[18]~60\ = CARRY((!\inst|qsig[17]~58\) # (!\inst|qsig\(18)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -902,32 +840,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(18),
+	dataa => \inst|qsig\(18),
 	datad => VCC,
-	cin => \qsig[17]~58\,
-	combout => \qsig[18]~59_combout\,
-	cout => \qsig[18]~60\);
+	cin => \inst|qsig[17]~58\,
+	combout => \inst|qsig[18]~59_combout\,
+	cout => \inst|qsig[18]~60\);
 
--- Location: FF_X1_Y44_N11
-\qsig[18]\ : dffeas
+-- Location: FF_X60_Y69_N11
+\inst|qsig[18]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[18]~59_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[18]~59_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(18));
+	q => \inst|qsig\(18));
 
--- Location: LCCOMB_X1_Y44_N12
-\qsig[19]~61\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N12
+\inst|qsig[19]~61\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[19]~61_combout\ = (qsig(19) & (\qsig[18]~60\ $ (GND))) # (!qsig(19) & (!\qsig[18]~60\ & VCC))
--- \qsig[19]~62\ = CARRY((qsig(19) & !\qsig[18]~60\))
+-- \inst|qsig[19]~61_combout\ = (\inst|qsig\(19) & (\inst|qsig[18]~60\ $ (GND))) # (!\inst|qsig\(19) & (!\inst|qsig[18]~60\ & VCC))
+-- \inst|qsig[19]~62\ = CARRY((\inst|qsig\(19) & !\inst|qsig[18]~60\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -935,32 +872,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(19),
+	dataa => \inst|qsig\(19),
 	datad => VCC,
-	cin => \qsig[18]~60\,
-	combout => \qsig[19]~61_combout\,
-	cout => \qsig[19]~62\);
+	cin => \inst|qsig[18]~60\,
+	combout => \inst|qsig[19]~61_combout\,
+	cout => \inst|qsig[19]~62\);
 
--- Location: FF_X1_Y44_N13
-\qsig[19]\ : dffeas
+-- Location: FF_X60_Y69_N13
+\inst|qsig[19]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[19]~61_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[19]~61_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(19));
+	q => \inst|qsig\(19));
 
--- Location: LCCOMB_X1_Y44_N14
-\qsig[20]~63\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N14
+\inst|qsig[20]~63\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[20]~63_combout\ = (qsig(20) & (!\qsig[19]~62\)) # (!qsig(20) & ((\qsig[19]~62\) # (GND)))
--- \qsig[20]~64\ = CARRY((!\qsig[19]~62\) # (!qsig(20)))
+-- \inst|qsig[20]~63_combout\ = (\inst|qsig\(20) & (!\inst|qsig[19]~62\)) # (!\inst|qsig\(20) & ((\inst|qsig[19]~62\) # (GND)))
+-- \inst|qsig[20]~64\ = CARRY((!\inst|qsig[19]~62\) # (!\inst|qsig\(20)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -968,32 +904,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(20),
+	datab => \inst|qsig\(20),
 	datad => VCC,
-	cin => \qsig[19]~62\,
-	combout => \qsig[20]~63_combout\,
-	cout => \qsig[20]~64\);
+	cin => \inst|qsig[19]~62\,
+	combout => \inst|qsig[20]~63_combout\,
+	cout => \inst|qsig[20]~64\);
 
--- Location: FF_X1_Y44_N15
-\qsig[20]\ : dffeas
+-- Location: FF_X60_Y69_N15
+\inst|qsig[20]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[20]~63_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[20]~63_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(20));
+	q => \inst|qsig\(20));
 
--- Location: LCCOMB_X1_Y44_N16
-\qsig[21]~65\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N16
+\inst|qsig[21]~65\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[21]~65_combout\ = (qsig(21) & (\qsig[20]~64\ $ (GND))) # (!qsig(21) & (!\qsig[20]~64\ & VCC))
--- \qsig[21]~66\ = CARRY((qsig(21) & !\qsig[20]~64\))
+-- \inst|qsig[21]~65_combout\ = (\inst|qsig\(21) & (\inst|qsig[20]~64\ $ (GND))) # (!\inst|qsig\(21) & (!\inst|qsig[20]~64\ & VCC))
+-- \inst|qsig[21]~66\ = CARRY((\inst|qsig\(21) & !\inst|qsig[20]~64\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1001,32 +936,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(21),
+	datab => \inst|qsig\(21),
 	datad => VCC,
-	cin => \qsig[20]~64\,
-	combout => \qsig[21]~65_combout\,
-	cout => \qsig[21]~66\);
+	cin => \inst|qsig[20]~64\,
+	combout => \inst|qsig[21]~65_combout\,
+	cout => \inst|qsig[21]~66\);
 
--- Location: FF_X1_Y44_N17
-\qsig[21]\ : dffeas
+-- Location: FF_X60_Y69_N17
+\inst|qsig[21]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[21]~65_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[21]~65_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(21));
+	q => \inst|qsig\(21));
 
--- Location: LCCOMB_X1_Y44_N18
-\qsig[22]~67\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N18
+\inst|qsig[22]~67\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[22]~67_combout\ = (qsig(22) & (!\qsig[21]~66\)) # (!qsig(22) & ((\qsig[21]~66\) # (GND)))
--- \qsig[22]~68\ = CARRY((!\qsig[21]~66\) # (!qsig(22)))
+-- \inst|qsig[22]~67_combout\ = (\inst|qsig\(22) & (!\inst|qsig[21]~66\)) # (!\inst|qsig\(22) & ((\inst|qsig[21]~66\) # (GND)))
+-- \inst|qsig[22]~68\ = CARRY((!\inst|qsig[21]~66\) # (!\inst|qsig\(22)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1034,32 +968,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(22),
+	datab => \inst|qsig\(22),
 	datad => VCC,
-	cin => \qsig[21]~66\,
-	combout => \qsig[22]~67_combout\,
-	cout => \qsig[22]~68\);
+	cin => \inst|qsig[21]~66\,
+	combout => \inst|qsig[22]~67_combout\,
+	cout => \inst|qsig[22]~68\);
 
--- Location: FF_X1_Y44_N19
-\qsig[22]\ : dffeas
+-- Location: FF_X60_Y69_N19
+\inst|qsig[22]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[22]~67_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[22]~67_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(22));
+	q => \inst|qsig\(22));
 
--- Location: LCCOMB_X1_Y44_N20
-\qsig[23]~69\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N20
+\inst|qsig[23]~69\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[23]~69_combout\ = (qsig(23) & (\qsig[22]~68\ $ (GND))) # (!qsig(23) & (!\qsig[22]~68\ & VCC))
--- \qsig[23]~70\ = CARRY((qsig(23) & !\qsig[22]~68\))
+-- \inst|qsig[23]~69_combout\ = (\inst|qsig\(23) & (\inst|qsig[22]~68\ $ (GND))) # (!\inst|qsig\(23) & (!\inst|qsig[22]~68\ & VCC))
+-- \inst|qsig[23]~70\ = CARRY((\inst|qsig\(23) & !\inst|qsig[22]~68\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1067,32 +1000,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => qsig(23),
+	datab => \inst|qsig\(23),
 	datad => VCC,
-	cin => \qsig[22]~68\,
-	combout => \qsig[23]~69_combout\,
-	cout => \qsig[23]~70\);
+	cin => \inst|qsig[22]~68\,
+	combout => \inst|qsig[23]~69_combout\,
+	cout => \inst|qsig[23]~70\);
 
--- Location: FF_X1_Y44_N21
-\qsig[23]\ : dffeas
+-- Location: FF_X60_Y69_N21
+\inst|qsig[23]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[23]~69_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[23]~69_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(23));
+	q => \inst|qsig\(23));
 
--- Location: LCCOMB_X1_Y44_N22
-\qsig[24]~71\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N22
+\inst|qsig[24]~71\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[24]~71_combout\ = (qsig(24) & (!\qsig[23]~70\)) # (!qsig(24) & ((\qsig[23]~70\) # (GND)))
--- \qsig[24]~72\ = CARRY((!\qsig[23]~70\) # (!qsig(24)))
+-- \inst|qsig[24]~71_combout\ = (\inst|qsig\(24) & (!\inst|qsig[23]~70\)) # (!\inst|qsig\(24) & ((\inst|qsig[23]~70\) # (GND)))
+-- \inst|qsig[24]~72\ = CARRY((!\inst|qsig[23]~70\) # (!\inst|qsig\(24)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1100,31 +1032,30 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => qsig(24),
+	dataa => \inst|qsig\(24),
 	datad => VCC,
-	cin => \qsig[23]~70\,
-	combout => \qsig[24]~71_combout\,
-	cout => \qsig[24]~72\);
+	cin => \inst|qsig[23]~70\,
+	combout => \inst|qsig[24]~71_combout\,
+	cout => \inst|qsig[24]~72\);
 
--- Location: FF_X1_Y44_N23
-\qsig[24]\ : dffeas
+-- Location: FF_X60_Y69_N23
+\inst|qsig[24]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[24]~71_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[24]~71_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(24));
+	q => \inst|qsig\(24));
 
--- Location: LCCOMB_X1_Y44_N24
-\qsig[25]~73\ : cycloneive_lcell_comb
+-- Location: LCCOMB_X60_Y69_N24
+\inst|qsig[25]~73\ : cycloneive_lcell_comb
 -- Equation(s):
--- \qsig[25]~73_combout\ = \qsig[24]~72\ $ (!qsig(25))
+-- \inst|qsig[25]~73_combout\ = \inst|qsig[24]~72\ $ (!\inst|qsig\(25))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1132,32 +1063,31 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datad => qsig(25),
-	cin => \qsig[24]~72\,
-	combout => \qsig[25]~73_combout\);
+	datad => \inst|qsig\(25),
+	cin => \inst|qsig[24]~72\,
+	combout => \inst|qsig[25]~73_combout\);
 
--- Location: FF_X1_Y44_N25
-\qsig[25]\ : dffeas
+-- Location: FF_X60_Y69_N25
+\inst|qsig[25]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \ck_50~inputclkctrl_outclk\,
-	d => \qsig[25]~73_combout\,
-	clrn => \ALT_INV_rst~inputclkctrl_outclk\,
+	clk => \CLOCK_50~inputclkctrl_outclk\,
+	d => \inst|qsig[25]~73_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => qsig(25));
+	q => \inst|qsig\(25));
 
-ww_msb1 <= \msb1~output_o\;
+ww_LEDR(17) <= \LEDR[17]~output_o\;
 
-ww_msb2 <= \msb2~output_o\;
+ww_LEDR(16) <= \LEDR[16]~output_o\;
 
-ww_msb3 <= \msb3~output_o\;
+ww_LEDR(15) <= \LEDR[15]~output_o\;
 
-ww_msb4 <= \msb4~output_o\;
+ww_LEDR(14) <= \LEDR[14]~output_o\;
 END structure;
 
 
