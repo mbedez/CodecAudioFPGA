@@ -1,9 +1,10 @@
 |TP4_CODEC_audio
+LEDG[0] <= Compteur26bit:inst.led
+CLOCK_50 => Compteur26bit:inst.ck_50
 LEDR[14] <= Compteur26bit:inst.msb4
 LEDR[15] <= Compteur26bit:inst.msb3
 LEDR[16] <= Compteur26bit:inst.msb2
 LEDR[17] <= Compteur26bit:inst.msb1
-CLOCK_50 => Compteur26bit:inst.ck_50
 
 
 |TP4_CODEC_audio|Compteur26bit:inst
@@ -33,35 +34,12 @@ ck_50 => qsig[22].CLK
 ck_50 => qsig[23].CLK
 ck_50 => qsig[24].CLK
 ck_50 => qsig[25].CLK
-rst => qsig[0].ACLR
-rst => qsig[1].ACLR
-rst => qsig[2].ACLR
-rst => qsig[3].ACLR
-rst => qsig[4].ACLR
-rst => qsig[5].ACLR
-rst => qsig[6].ACLR
-rst => qsig[7].ACLR
-rst => qsig[8].ACLR
-rst => qsig[9].ACLR
-rst => qsig[10].ACLR
-rst => qsig[11].ACLR
-rst => qsig[12].ACLR
-rst => qsig[13].ACLR
-rst => qsig[14].ACLR
-rst => qsig[15].ACLR
-rst => qsig[16].ACLR
-rst => qsig[17].ACLR
-rst => qsig[18].ACLR
-rst => qsig[19].ACLR
-rst => qsig[20].ACLR
-rst => qsig[21].ACLR
-rst => qsig[22].ACLR
-rst => qsig[23].ACLR
-rst => qsig[24].ACLR
-rst => qsig[25].ACLR
-msb1 <= qsig[25].DB_MAX_OUTPUT_PORT_TYPE
-msb2 <= qsig[24].DB_MAX_OUTPUT_PORT_TYPE
-msb3 <= qsig[23].DB_MAX_OUTPUT_PORT_TYPE
-msb4 <= qsig[22].DB_MAX_OUTPUT_PORT_TYPE
+ck_50 => ledsig.CLK
+rst => process_0.IN1
+msb1 <= qsig[24].DB_MAX_OUTPUT_PORT_TYPE
+msb2 <= qsig[23].DB_MAX_OUTPUT_PORT_TYPE
+msb3 <= qsig[22].DB_MAX_OUTPUT_PORT_TYPE
+msb4 <= qsig[21].DB_MAX_OUTPUT_PORT_TYPE
+led <= ledsig.DB_MAX_OUTPUT_PORT_TYPE
 
 

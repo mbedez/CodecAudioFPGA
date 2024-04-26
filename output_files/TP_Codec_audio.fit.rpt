@@ -1,5 +1,5 @@
 Fitter report for TP_Codec_audio
-Fri Apr 26 10:22:11 2024
+Fri Apr 26 11:48:13 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -66,18 +66,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Apr 26 10:22:11 2024       ;
+; Fitter Status                      ; Successful - Fri Apr 26 11:48:13 2024       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TP_Codec_audio                              ;
 ; Top-level Entity Name              ; TP4_CODEC_audio                             ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 26 / 114,480 ( < 1 % )                      ;
-;     Total combinational functions  ; 26 / 114,480 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 26 / 114,480 ( < 1 % )                      ;
-; Total registers                    ; 26                                          ;
-; Total pins                         ; 5 / 529 ( < 1 % )                           ;
+; Total logic elements               ; 48 / 114,480 ( < 1 % )                      ;
+;     Total combinational functions  ; 48 / 114,480 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 27 / 114,480 ( < 1 % )                      ;
+; Total registers                    ; 27                                          ;
+; Total pins                         ; 6 / 529 ( 1 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -153,12 +153,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.1%      ;
+;     Processors 2-12        ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -517,7 +517,6 @@ refer to the applicable agreement for further details.
 ; Location     ;                 ;              ; LCD_ON           ; PIN_L5        ; QSF Assignment ;
 ; Location     ;                 ;              ; LCD_RS           ; PIN_M2        ; QSF Assignment ;
 ; Location     ;                 ;              ; LCD_RW           ; PIN_M1        ; QSF Assignment ;
-; Location     ;                 ;              ; LEDG[0]          ; PIN_E21       ; QSF Assignment ;
 ; Location     ;                 ;              ; LEDG[1]          ; PIN_E22       ; QSF Assignment ;
 ; Location     ;                 ;              ; LEDG[2]          ; PIN_E25       ; QSF Assignment ;
 ; Location     ;                 ;              ; LEDG[3]          ; PIN_E24       ; QSF Assignment ;
@@ -1037,7 +1036,6 @@ refer to the applicable agreement for further details.
 ; I/O Standard ; TP4_CODEC_audio ;              ; LCD_ON           ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; TP4_CODEC_audio ;              ; LCD_RS           ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; TP4_CODEC_audio ;              ; LCD_RW           ; 3.3-V LVTTL   ; QSF Assignment ;
-; I/O Standard ; TP4_CODEC_audio ;              ; LEDG[0]          ; 2.5 V         ; QSF Assignment ;
 ; I/O Standard ; TP4_CODEC_audio ;              ; LEDG[1]          ; 2.5 V         ; QSF Assignment ;
 ; I/O Standard ; TP4_CODEC_audio ;              ; LEDG[2]          ; 2.5 V         ; QSF Assignment ;
 ; I/O Standard ; TP4_CODEC_audio ;              ; LEDG[3]          ; 2.5 V         ; QSF Assignment ;
@@ -1216,8 +1214,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]     ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+-------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                   ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 74 ) ; 0.00 % ( 0 / 74 )          ; 0.00 % ( 0 / 74 )        ;
-;     -- Achieved     ; 0.00 % ( 0 / 74 ) ; 0.00 % ( 0 / 74 )          ; 0.00 % ( 0 / 74 )        ;
+;     -- Requested    ; 0.00 % ( 0 / 99 ) ; 0.00 % ( 0 / 99 )          ; 0.00 % ( 0 / 99 )        ;
+;     -- Achieved     ; 0.00 % ( 0 / 99 ) ; 0.00 % ( 0 / 99 )          ; 0.00 % ( 0 / 99 )        ;
 ;                     ;                   ;                            ;                          ;
 ; Routing (by net)    ;                   ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -1240,7 +1238,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 64 )     ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 89 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -1256,28 +1254,28 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 26 / 114,480 ( < 1 % ) ;
-;     -- Combinational with no register       ; 0                      ;
+; Total logic elements                        ; 48 / 114,480 ( < 1 % ) ;
+;     -- Combinational with no register       ; 21                     ;
 ;     -- Register only                        ; 0                      ;
-;     -- Combinational with a register        ; 26                     ;
+;     -- Combinational with a register        ; 27                     ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 0                      ;
-;     -- 3 input functions                    ; 1                      ;
-;     -- <=2 input functions                  ; 25                     ;
+;     -- 4 input functions                    ; 8                      ;
+;     -- 3 input functions                    ; 0                      ;
+;     -- <=2 input functions                  ; 40                     ;
 ;     -- Register only                        ; 0                      ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 2                      ;
-;     -- arithmetic mode                      ; 24                     ;
+;     -- normal mode                          ; 23                     ;
+;     -- arithmetic mode                      ; 25                     ;
 ;                                             ;                        ;
-; Total registers*                            ; 26 / 117,053 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 26 / 114,480 ( < 1 % ) ;
+; Total registers*                            ; 27 / 117,053 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 27 / 114,480 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 2,573 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 2 / 7,155 ( < 1 % )    ;
+; Total LABs:  partially or completely used   ; 4 / 7,155 ( < 1 % )    ;
 ; Virtual pins                                ; 0                      ;
-; I/O pins                                    ; 5 / 529 ( < 1 % )      ;
+; I/O pins                                    ; 6 / 529 ( 1 % )        ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )         ;
 ;     -- Dedicated input pins                 ; 0 / 9 ( 0 % )          ;
 ;                                             ;                        ;
@@ -1294,11 +1292,11 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )          ;
 ; Average interconnect usage (total/H/V)      ; 0.0% / 0.0% / 0.0%     ;
-; Peak interconnect usage (total/H/V)         ; 0.1% / 0.1% / 0.1%     ;
-; Maximum fan-out                             ; 26                     ;
-; Highest non-global fan-out                  ; 2                      ;
-; Total fan-out                               ; 118                    ;
-; Average fan-out                             ; 1.62                   ;
+; Peak interconnect usage (total/H/V)         ; 0.2% / 0.2% / 0.3%     ;
+; Maximum fan-out                             ; 27                     ;
+; Highest non-global fan-out                  ; 13                     ;
+; Total fan-out                               ; 182                    ;
+; Average fan-out                             ; 1.86                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -1311,29 +1309,29 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 26 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 0                     ; 0                              ;
+; Total logic elements                        ; 48 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 21                    ; 0                              ;
 ;     -- Register only                        ; 0                     ; 0                              ;
-;     -- Combinational with a register        ; 26                    ; 0                              ;
+;     -- Combinational with a register        ; 27                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 0                     ; 0                              ;
-;     -- 3 input functions                    ; 1                     ; 0                              ;
-;     -- <=2 input functions                  ; 25                    ; 0                              ;
+;     -- 4 input functions                    ; 8                     ; 0                              ;
+;     -- 3 input functions                    ; 0                     ; 0                              ;
+;     -- <=2 input functions                  ; 40                    ; 0                              ;
 ;     -- Register only                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 2                     ; 0                              ;
-;     -- arithmetic mode                      ; 24                    ; 0                              ;
+;     -- normal mode                          ; 23                    ; 0                              ;
+;     -- arithmetic mode                      ; 25                    ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 26                    ; 0                              ;
-;     -- Dedicated logic registers            ; 26 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+; Total registers                             ; 27                    ; 0                              ;
+;     -- Dedicated logic registers            ; 27 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 2 / 7155 ( < 1 % )    ; 0 / 7155 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 4 / 7155 ( < 1 % )    ; 0 / 7155 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
-; I/O pins                                    ; 5                     ; 0                              ;
+; I/O pins                                    ; 6                     ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 532 ( 0 % )       ; 0 / 532 ( 0 % )                ;
 ; Total memory bits                           ; 0                     ; 0                              ;
 ; Total RAM block bits                        ; 0                     ; 0                              ;
@@ -1346,8 +1344,8 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 113                   ; 5                              ;
-;     -- Registered Connections               ; 31                    ; 0                              ;
+;     -- Total Connections                    ; 177                   ; 5                              ;
+;     -- Registered Connections               ; 58                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -1355,7 +1353,7 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 ;                                             ;                       ;                                ;
 ; Partition Interface                         ;                       ;                                ;
 ;     -- Input Ports                          ; 1                     ; 0                              ;
-;     -- Output Ports                         ; 4                     ; 0                              ;
+;     -- Output Ports                         ; 5                     ; 0                              ;
 ;     -- Bidir Ports                          ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Registered Ports                            ;                       ;                                ;
@@ -1379,7 +1377,7 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 26                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
+; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 27                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -1388,6 +1386,7 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 +----------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
+; LEDG[0]  ; E21   ; 7        ; 107          ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR[14] ; F15   ; 7        ; 58           ; 73           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR[15] ; G15   ; 7        ; 65           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR[16] ; G16   ; 7        ; 67           ; 73           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
@@ -1427,7 +1426,7 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 ; 4        ; 0 / 71 ( 0 % ) ; 2.5V          ; --           ;
 ; 5        ; 0 / 65 ( 0 % ) ; 2.5V          ; --           ;
 ; 6        ; 1 / 58 ( 2 % ) ; 2.5V          ; --           ;
-; 7        ; 4 / 72 ( 6 % ) ; 2.5V          ; --           ;
+; 7        ; 5 / 72 ( 7 % ) ; 2.5V          ; --           ;
 ; 8        ; 0 / 71 ( 0 % ) ; 2.5V          ; --           ;
 +----------+----------------+---------------+--------------+
 
@@ -1789,7 +1788,7 @@ The pin-out file can be found in C:/Users/mboulogne/Documents/FPGA/Project/TP_Co
 ; E18      ; 427        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E19      ; 421        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E20      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; E21      ; 407        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; E21      ; 407        ; 7        ; LEDG[0]                                                   ; output ; 2.5 V        ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; E22      ; 403        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E23      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; E24      ; 433        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -2226,6 +2225,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------+--------------------------------------+
 ; Pin Name ; Reason                               ;
 +----------+--------------------------------------+
+; LEDG[0]  ; Missing drive strength and slew rate ;
 ; LEDR[17] ; Missing drive strength and slew rate ;
 ; LEDR[16] ; Missing drive strength and slew rate ;
 ; LEDR[15] ; Missing drive strength and slew rate ;
@@ -2238,8 +2238,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                 ; Entity Name     ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------+-----------------+--------------+
-; |TP4_CODEC_audio           ; 26 (0)      ; 26 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 5    ; 0            ; 0 (0)        ; 0 (0)             ; 26 (0)           ; |TP4_CODEC_audio                    ; TP4_CODEC_audio ; work         ;
-;    |Compteur26bit:inst|    ; 26 (26)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 26 (26)          ; |TP4_CODEC_audio|Compteur26bit:inst ; Compteur26bit   ; work         ;
+; |TP4_CODEC_audio           ; 48 (0)      ; 27 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 6    ; 0            ; 21 (0)       ; 0 (0)             ; 27 (0)           ; |TP4_CODEC_audio                    ; TP4_CODEC_audio ; work         ;
+;    |Compteur26bit:inst|    ; 48 (48)     ; 27 (27)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 0 (0)             ; 27 (27)          ; |TP4_CODEC_audio|Compteur26bit:inst ; Compteur26bit   ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -2249,6 +2249,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------------+---------------+-----------------------+-----+------+
 ; Name     ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE ;
 +----------+----------+---------------+---------------+-----------------------+-----+------+
+; LEDG[0]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR[17] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR[16] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR[15] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
@@ -2271,7 +2272,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_Y2   ; 26      ; Clock ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; CLOCK_50 ; PIN_Y2   ; 27      ; Clock ; yes    ; Global Clock         ; GCLK4            ; --                        ;
 +----------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 
 
@@ -2280,7 +2281,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_Y2   ; 26      ; 11                                   ; Global Clock         ; GCLK4            ; --                        ;
+; CLOCK_50 ; PIN_Y2   ; 27      ; 12                                   ; Global Clock         ; GCLK4            ; --                        ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -2289,23 +2290,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 6 / 342,891 ( < 1 % )  ;
+; Block interconnects   ; 40 / 342,891 ( < 1 % ) ;
 ; C16 interconnects     ; 0 / 10,120 ( 0 % )     ;
-; C4 interconnects      ; 5 / 209,544 ( < 1 % )  ;
-; Direct links          ; 1 / 342,891 ( < 1 % )  ;
+; C4 interconnects      ; 13 / 209,544 ( < 1 % ) ;
+; Direct links          ; 21 / 342,891 ( < 1 % ) ;
 ; Global clocks         ; 1 / 20 ( 5 % )         ;
-; Local interconnects   ; 25 / 119,088 ( < 1 % ) ;
+; Local interconnects   ; 38 / 119,088 ( < 1 % ) ;
 ; R24 interconnects     ; 1 / 9,963 ( < 1 % )    ;
-; R4 interconnects      ; 3 / 289,782 ( < 1 % )  ;
+; R4 interconnects      ; 20 / 289,782 ( < 1 % ) ;
 +-----------------------+------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 13.00) ; Number of LABs  (Total = 2) ;
+; Number of Logic Elements  (Average = 12.00) ; Number of LABs  (Total = 4) ;
 +---------------------------------------------+-----------------------------+
-; 1                                           ; 0                           ;
+; 1                                           ; 1                           ;
 ; 2                                           ; 0                           ;
 ; 3                                           ; 0                           ;
 ; 4                                           ; 0                           ;
@@ -2317,29 +2318,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 10                                          ; 0                           ;
 ; 11                                          ; 0                           ;
 ; 12                                          ; 0                           ;
-; 13                                          ; 2                           ;
+; 13                                          ; 0                           ;
 ; 14                                          ; 0                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 0                           ;
+; 15                                          ; 1                           ;
+; 16                                          ; 2                           ;
 +---------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 2) ;
+; LAB-wide Signals  (Average = 0.75) ; Number of LABs  (Total = 4) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 2                           ;
+; 1 Clock                            ; 3                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 26.00) ; Number of LABs  (Total = 2) ;
+; Number of Signals Sourced  (Average = 18.75) ; Number of LABs  (Total = 4) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
-; 1                                            ; 0                           ;
+; 1                                            ; 1                           ;
 ; 2                                            ; 0                           ;
 ; 3                                            ; 0                           ;
 ; 4                                            ; 0                           ;
@@ -2361,34 +2362,64 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 20                                           ; 0                           ;
 ; 21                                           ; 0                           ;
 ; 22                                           ; 0                           ;
-; 23                                           ; 0                           ;
+; 23                                           ; 2                           ;
 ; 24                                           ; 0                           ;
 ; 25                                           ; 0                           ;
-; 26                                           ; 2                           ;
+; 26                                           ; 0                           ;
+; 27                                           ; 0                           ;
+; 28                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 2.00) ; Number of LABs  (Total = 2) ;
+; Number of Signals Sourced Out  (Average = 8.25) ; Number of LABs  (Total = 4) ;
 +-------------------------------------------------+-----------------------------+
-; 0                                               ; 1                           ;
-; 1                                               ; 0                           ;
+; 0                                               ; 0                           ;
+; 1                                               ; 1                           ;
 ; 2                                               ; 0                           ;
 ; 3                                               ; 0                           ;
-; 4                                               ; 1                           ;
+; 4                                               ; 0                           ;
+; 5                                               ; 0                           ;
+; 6                                               ; 0                           ;
+; 7                                               ; 0                           ;
+; 8                                               ; 0                           ;
+; 9                                               ; 1                           ;
+; 10                                              ; 1                           ;
+; 11                                              ; 0                           ;
+; 12                                              ; 0                           ;
+; 13                                              ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 1.50) ; Number of LABs  (Total = 2) ;
+; Number of Distinct Inputs  (Average = 9.25) ; Number of LABs  (Total = 4) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
-; 1                                           ; 1                           ;
-; 2                                           ; 1                           ;
+; 1                                           ; 0                           ;
+; 2                                           ; 0                           ;
+; 3                                           ; 1                           ;
+; 4                                           ; 1                           ;
+; 5                                           ; 0                           ;
+; 6                                           ; 0                           ;
+; 7                                           ; 0                           ;
+; 8                                           ; 0                           ;
+; 9                                           ; 1                           ;
+; 10                                          ; 0                           ;
+; 11                                          ; 0                           ;
+; 12                                          ; 0                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 0                           ;
+; 15                                          ; 0                           ;
+; 16                                          ; 0                           ;
+; 17                                          ; 0                           ;
+; 18                                          ; 0                           ;
+; 19                                          ; 0                           ;
+; 20                                          ; 0                           ;
+; 21                                          ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -2449,10 +2480,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000001 ; IO_000002    ; IO_000003 ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007 ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011    ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018    ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass         ; 5         ; 0            ; 5         ; 0            ; 0            ; 5         ; 5         ; 0            ; 5         ; 5         ; 0            ; 4            ; 0            ; 0            ; 1            ; 0            ; 4            ; 1            ; 0            ; 0            ; 0            ; 4            ; 0            ; 0            ; 0            ; 0            ; 0            ; 5         ; 0            ; 0            ;
+; Total Pass         ; 6         ; 0            ; 6         ; 0            ; 0            ; 6         ; 6         ; 0            ; 6         ; 6         ; 0            ; 5            ; 0            ; 0            ; 1            ; 0            ; 5            ; 1            ; 0            ; 0            ; 0            ; 5            ; 0            ; 0            ; 0            ; 0            ; 0            ; 6         ; 0            ; 0            ;
 ; Total Unchecked    ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 0         ; 5            ; 0         ; 5            ; 5            ; 0         ; 0         ; 5            ; 0         ; 0         ; 5            ; 1            ; 5            ; 5            ; 4            ; 5            ; 1            ; 4            ; 5            ; 5            ; 5            ; 1            ; 5            ; 5            ; 5            ; 5            ; 5            ; 0         ; 5            ; 5            ;
+; Total Inapplicable ; 0         ; 6            ; 0         ; 6            ; 6            ; 0         ; 0         ; 6            ; 0         ; 0         ; 6            ; 1            ; 6            ; 6            ; 5            ; 6            ; 1            ; 5            ; 6            ; 6            ; 6            ; 1            ; 6            ; 6            ; 6            ; 6            ; 6            ; 0         ; 6            ; 6            ;
 ; Total Fail         ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
+; LEDG[0]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LEDR[17]           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LEDR[16]           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LEDR[15]           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -2885,7 +2917,6 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "LCD_ON" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LCD_RS" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LCD_RW" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LEDG[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[3]" is assigned to location or region, but does not exist in design
@@ -3061,14 +3092,14 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X58_Y61 to location X68_Y73
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.11 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (11888): Total time spent on timing analysis during the Fitter is 0.16 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -3078,11 +3109,11 @@ Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments 
 Warning (169177): 1 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2
 Info (144001): Generated suppressed messages file C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/output_files/TP_Codec_audio.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 527 warnings
-    Info: Peak virtual memory: 6290 megabytes
-    Info: Processing ended: Fri Apr 26 10:22:11 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:07
+Info: Quartus Prime Fitter was successful. 0 errors, 526 warnings
+    Info: Peak virtual memory: 6314 megabytes
+    Info: Processing ended: Fri Apr 26 11:48:13 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:12
 
 
 +----------------------------+
