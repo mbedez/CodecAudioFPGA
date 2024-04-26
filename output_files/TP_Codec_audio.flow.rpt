@@ -1,5 +1,5 @@
 Flow report for TP_Codec_audio
-Fri Apr 26 09:18:06 2024
+Fri Apr 26 09:43:39 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 26 09:18:06 2024       ;
+; Flow Status                        ; Successful - Fri Apr 26 09:43:39 2024       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TP_Codec_audio                              ;
 ; Top-level Entity Name              ; Compteur26bit                               ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/26/2024 09:17:30 ;
+; Start date & time ; 04/26/2024 09:43:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TP_Codec_audio      ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+----------------+---------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value  ; Entity Name   ; Section Id     ;
 +-------------------------------------+----------------------------------------+----------------+---------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589195.171411584902512         ; --             ; --            ; --             ;
+; COMPILER_SIGNATURE_ID               ; 10995770589195.171411738505916         ; --             ; --            ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --             ; --            ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>         ; --            ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --             ; --            ; eda_simulation ;
@@ -95,12 +95,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4846 MB             ; 00:00:07                           ;
-; Fitter               ; 00:00:17     ; 1.0                     ; 6292 MB             ; 00:00:09                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4840 MB             ; 00:00:07                           ;
+; Fitter               ; 00:00:15     ; 1.0                     ; 6287 MB             ; 00:00:09                           ;
 ; Assembler            ; 00:00:03     ; 1.0                     ; 4682 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4920 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4907 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4648 MB             ; 00:00:01                           ;
-; Total                ; 00:00:33     ; --                      ; --                  ; 00:00:20                           ;
+; Total                ; 00:00:31     ; --                      ; --                  ; 00:00:20                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
