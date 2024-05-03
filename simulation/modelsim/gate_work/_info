@@ -8,8 +8,8 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/simulation/modelsim
-Ecompteur26bit
-Z1 w1714117267
+Eafficheur7segment
+Z1 w1714717062
 Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 g8;l:a_bzlE?3R3d7zk3Z0
 Z3 DPx10 cycloneive 21 cycloneive_components 0 22 Yj^f[Ven<H;0LiK:6PWEg0
 Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
@@ -23,13 +23,13 @@ Z10 8TP_Codec_audio_7_1200mv_85c_slow.vho
 Z11 FTP_Codec_audio_7_1200mv_85c_slow.vho
 l0
 L79
-V>mcLUcaG[`=L;gC;6WM8:0
-!s100 i`9V[nM9W8903RDN^2jjC1
+VHhWElLPH6z?SG>N:dX><60
+!s100 o70_ZVcJC9nFlJ?dPfm@U0
 Z12 OV;C;10.5b;63
 31
-Z13 !s110 1714117295
+Z13 !s110 1714717144
 !i10b 1
-Z14 !s108 1714117295.000000
+Z14 !s108 1714717144.000000
 Z15 !s90 -reportprogress|300|-93|-work|work|TP_Codec_audio_7_1200mv_85c_slow.vho|
 Z16 !s107 TP_Codec_audio_7_1200mv_85c_slow.vho|
 !i113 1
@@ -44,11 +44,11 @@ R6
 R7
 R8
 R9
-DEx4 work 13 compteur26bit 0 22 >mcLUcaG[`=L;gC;6WM8:0
-l239
-L126
-V752;UoTZfN9:URIlc:``l0
-!s100 c9DgOd?9cXb:z1o8e?bno1
+DEx4 work 17 afficheur7segment 0 22 HhWElLPH6z?SG>N:dX><60
+l164
+L105
+V;<m`O[GjOS;:NzYBCkB6a3
+!s100 g5f=dGH3<z9HGBHJ`[k`a2
 R12
 31
 R13

@@ -1,10 +1,44 @@
 |TP4_CODEC_audio
-LEDG[0] <= Compteur26bit:inst.led
+HEX0[0] <= afficheur7segment:inst4.seg0
+HEX0[1] <= afficheur7segment:inst4.seg1
+HEX0[2] <= afficheur7segment:inst4.seg2
+HEX0[3] <= afficheur7segment:inst4.seg3
+HEX0[4] <= afficheur7segment:inst4.seg4
+HEX0[5] <= afficheur7segment:inst4.seg5
+HEX0[6] <= afficheur7segment:inst4.seg6
 CLOCK_50 => Compteur26bit:inst.ck_50
+LEDG[0] <= Compteur26bit:inst.led
 LEDR[14] <= Compteur26bit:inst.msb4
 LEDR[15] <= Compteur26bit:inst.msb3
 LEDR[16] <= Compteur26bit:inst.msb2
 LEDR[17] <= Compteur26bit:inst.msb1
+
+
+|TP4_CODEC_audio|afficheur7segment:inst4
+ck => Compteur0to9:compteur.ck
+rst => Compteur0to9:compteur.rst
+seg0 <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg1 <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg2 <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg3 <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg4 <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg5 <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg6 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TP4_CODEC_audio|afficheur7segment:inst4|Compteur0to9:compteur
+ck => counter[0].CLK
+ck => counter[1].CLK
+ck => counter[2].CLK
+ck => counter[3].CLK
+rst => counter[0].ACLR
+rst => counter[1].ACLR
+rst => counter[2].ACLR
+rst => counter[3].ACLR
+count_out[0] <= counter[0].DB_MAX_OUTPUT_PORT_TYPE
+count_out[1] <= counter[1].DB_MAX_OUTPUT_PORT_TYPE
+count_out[2] <= counter[2].DB_MAX_OUTPUT_PORT_TYPE
+count_out[3] <= counter[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TP4_CODEC_audio|Compteur26bit:inst
