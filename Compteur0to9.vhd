@@ -8,7 +8,7 @@ entity Compteur0to9 is
            count_out : out STD_LOGIC_VECTOR(3 downto 0)); -- Sortie du compteur
 end Compteur0to9;
 
-architecture Behavioral of Compteur0to9 is
+architecture Program of Compteur0to9 is
     signal counter : integer range 0 to 9 := 0;
 begin
 
@@ -27,4 +27,4 @@ begin
 
     count_out <= std_logic_vector(to_unsigned(counter, count_out'length));
 
-end Behavioral;
+end Program;

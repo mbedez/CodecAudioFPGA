@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TP_Codec_audio
-Fri May 03 08:29:06 2024
+Mon May 13 08:49:08 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -42,16 +42,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 03 08:29:06 2024       ;
+; Analysis & Synthesis Status        ; Successful - Mon May 13 08:49:08 2024       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TP_Codec_audio                              ;
 ; Top-level Entity Name              ; TP4_CODEC_audio                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 58                                          ;
-;     Total combinational functions  ; 58                                          ;
-;     Dedicated logic registers      ; 31                                          ;
-; Total registers                    ; 31                                          ;
-; Total pins                         ; 13                                          ;
+; Total logic elements               ; 77                                          ;
+;     Total combinational functions  ; 73                                          ;
+;     Dedicated logic registers      ; 46                                          ;
+; Total registers                    ; 46                                          ;
+; Total pins                         ; 14                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -158,7 +158,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -171,6 +172,7 @@ refer to the applicable agreement for further details.
 ; TP4_CODEC_audio.bdf              ; yes             ; User Block Diagram/Schematic File  ; C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/TP4_CODEC_audio.bdf   ;         ;
 ; afficheur7segment.vhd            ; yes             ; User VHDL File                     ; C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/afficheur7segment.vhd ;         ;
 ; Compteur0to9.vhd                 ; yes             ; User VHDL File                     ; C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur0to9.vhd      ;         ;
+; key_sampler.vhd                  ; yes             ; User VHDL File                     ; C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd       ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------+---------+
 
 
@@ -179,30 +181,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 58             ;
+; Estimated Total logic elements              ; 77             ;
 ;                                             ;                ;
-; Total combinational functions               ; 58             ;
+; Total combinational functions               ; 73             ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 17             ;
-;     -- 3 input functions                    ; 14             ;
-;     -- <=2 input functions                  ; 27             ;
+;     -- 4 input functions                    ; 22             ;
+;     -- 3 input functions                    ; 15             ;
+;     -- <=2 input functions                  ; 36             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 33             ;
-;     -- arithmetic mode                      ; 25             ;
+;     -- normal mode                          ; 40             ;
+;     -- arithmetic mode                      ; 33             ;
 ;                                             ;                ;
-; Total registers                             ; 31             ;
-;     -- Dedicated logic registers            ; 31             ;
+; Total registers                             ; 46             ;
+;     -- Dedicated logic registers            ; 46             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 13             ;
+; I/O pins                                    ; 14             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 27             ;
-; Total fan-out                               ; 249            ;
-; Average fan-out                             ; 2.17           ;
+; Maximum fan-out                             ; 42             ;
+; Total fan-out                               ; 349            ;
+; Average fan-out                             ; 2.37           ;
 +---------------------------------------------+----------------+
 
 
@@ -211,10 +213,11 @@ refer to the applicable agreement for further details.
 +-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Entity Name       ; Library Name ;
 +-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------------+--------------+
-; |TP4_CODEC_audio              ; 58 (0)              ; 31 (0)                    ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |TP4_CODEC_audio                                               ; TP4_CODEC_audio   ; work         ;
+; |TP4_CODEC_audio              ; 73 (0)              ; 46 (0)                    ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |TP4_CODEC_audio                                               ; TP4_CODEC_audio   ; work         ;
 ;    |Compteur26bit:inst|       ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TP4_CODEC_audio|Compteur26bit:inst                            ; Compteur26bit     ; work         ;
 ;    |afficheur7segment:inst4|  ; 11 (7)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TP4_CODEC_audio|afficheur7segment:inst4                       ; afficheur7segment ; work         ;
 ;       |Compteur0to9:compteur| ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TP4_CODEC_audio|afficheur7segment:inst4|Compteur0to9:compteur ; Compteur0to9      ; work         ;
+;    |key_sampler:inst11|       ; 15 (15)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TP4_CODEC_audio|key_sampler:inst11                            ; key_sampler       ; work         ;
 +-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -224,12 +227,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 31    ;
+; Total registers                              ; 46    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 30    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -239,19 +242,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 13                          ;
-; cycloneiii_ff         ; 31                          ;
-;     plain             ; 31                          ;
-; cycloneiii_lcell_comb ; 59                          ;
-;     arith             ; 25                          ;
-;         2 data inputs ; 25                          ;
-;     normal            ; 34                          ;
-;         1 data inputs ; 3                           ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 46                          ;
+;     ENA               ; 30                          ;
+;     plain             ; 16                          ;
+; cycloneiii_lcell_comb ; 74                          ;
+;     arith             ; 33                          ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 41                          ;
+;         1 data inputs ; 5                           ;
 ;         3 data inputs ; 14                          ;
-;         4 data inputs ; 17                          ;
+;         4 data inputs ; 22                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 3.10                        ;
+; Average LUT depth     ; 2.83                        ;
 +-----------------------+-----------------------------+
 
 
@@ -270,7 +275,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri May 03 08:28:57 2024
+    Info: Processing started: Mon May 13 08:48:59 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TP_Codec_audio -c TP_Codec_audio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -283,24 +288,34 @@ Info (12021): Found 2 design units, including 1 entities, in source file affiche
     Info (12022): Found design unit 1: afficheur7segment-program File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/afficheur7segment.vhd Line: 11
     Info (12023): Found entity 1: afficheur7segment File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/afficheur7segment.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file compteur0to9.vhd
-    Info (12022): Found design unit 1: Compteur0to9-Behavioral File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur0to9.vhd Line: 11
+    Info (12022): Found design unit 1: Compteur0to9-Program File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur0to9.vhd Line: 11
     Info (12023): Found entity 1: Compteur0to9 File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur0to9.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file compteur10bits.vhd
+    Info (12022): Found design unit 1: Compteur10bits-Program File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur10bits.vhd Line: 11
+    Info (12023): Found entity 1: Compteur10bits File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/Compteur10bits.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file key_sampler.vhd
+    Info (12022): Found design unit 1: key_sampler-Program File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd Line: 11
+    Info (12023): Found entity 1: key_sampler File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd Line: 6
 Info (12127): Elaborating entity "TP4_CODEC_audio" for the top level hierarchy
 Info (12128): Elaborating entity "afficheur7segment" for hierarchy "afficheur7segment:inst4"
 Warning (10492): VHDL Process Statement warning at afficheur7segment.vhd(26): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/afficheur7segment.vhd Line: 26
 Info (12128): Elaborating entity "Compteur0to9" for hierarchy "afficheur7segment:inst4|Compteur0to9:compteur" File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/afficheur7segment.vhd Line: 22
 Info (12128): Elaborating entity "Compteur26bit" for hierarchy "Compteur26bit:inst"
+Info (12128): Elaborating entity "key_sampler" for hierarchy "key_sampler:inst11"
+Warning (10492): VHDL Process Statement warning at key_sampler.vhd(22): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at key_sampler.vhd(32): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at key_sampler.vhd(39): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mboulogne/Documents/FPGA/Project/TP_Codec_audio/key_sampler.vhd Line: 39
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 71 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
+Info (21057): Implemented 91 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 58 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4842 megabytes
-    Info: Processing ended: Fri May 03 08:29:06 2024
+    Info (21061): Implemented 77 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4860 megabytes
+    Info: Processing ended: Mon May 13 08:49:08 2024
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Total CPU time (on all processors): 00:00:07
 
 

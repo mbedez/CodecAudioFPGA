@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {TP_Codec_audio_7_1200mv_85c_slow.vho}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:19:04 on May 03,2024
+# Start time: 11:08:58 on May 06,2024
 # vcom -reportprogress 300 -93 -work work TP_Codec_audio_7_1200mv_85c_slow.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -25,14 +25,14 @@
 # -- Compiling architecture structure of hard_block
 # -- Loading package dffeas_pack
 # -- Loading package altera_primitives_components
-# -- Compiling entity afficheur7segment
-# -- Compiling architecture structure of afficheur7segment
-# End time: 08:19:04 on May 03,2024, Elapsed time: 0:00:00
+# -- Compiling entity Compteur26bit
+# -- Compiling architecture structure of Compteur26bit
+# End time: 11:08:58 on May 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vsim work.afficheur7segment
-# vsim work.afficheur7segment 
-# Start time: 08:19:11 on May 03,2024
+vsim work.compteur26bit
+# vsim work.compteur26bit 
+# Start time: 11:09:01 on May 06,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -42,7 +42,7 @@ vsim work.afficheur7segment
 # Loading altera.altera_primitives_components
 # Loading cycloneive.cycloneive_atom_pack(body)
 # Loading cycloneive.cycloneive_components
-# Loading work.afficheur7segment(structure)
+# Loading work.compteur26bit(structure)
 # Loading work.hard_block(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneive.cycloneive_io_obuf(arch)
@@ -51,17 +51,13 @@ vsim work.afficheur7segment
 # Loading cycloneive.cycloneive_ena_reg(behave)
 # Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
 # Loading altera.dffeas(vital_dffeas)
-add wave -position end  sim:/afficheur7segment/ck
-add wave -position end  sim:/afficheur7segment/seg0
-add wave -position end  sim:/afficheur7segment/seg1
-add wave -position end  sim:/afficheur7segment/seg2
-add wave -position end  sim:/afficheur7segment/seg3
-add wave -position end  sim:/afficheur7segment/seg4
-add wave -position end  sim:/afficheur7segment/seg5
-add wave -position end  sim:/afficheur7segment/seg6
-force -freeze sim:/afficheur7segment/ck 1 0, 0 {50 ps} -r 100
+# ** Warning: Design size of 11759 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+add wave -position end  sim:/compteur26bit/ck_50
+force -freeze sim:/compteur26bit/ck_50 1 0, 0 {10000 ps} -r 20ns
+wave create -driver freeze -pattern counter -startvalue 0 -endvalue 1 -type Range -direction Up -period 1us -step 1 -repeat forever -starttime 0us -endtime 1000us sim:/compteur26bit/enable
+# Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+add wave -position end  sim:/compteur26bit/count
 run
-# Break key hit
-# Break in Process VITALtiming at C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../altera/vhdl/src/altera/altera_primitives.vhd line 611
-# End time: 08:21:27 on May 03,2024, Elapsed time: 0:02:16
-# Errors: 0, Warnings: 0
+# End time: 11:26:46 on May 06,2024, Elapsed time: 0:17:45
+# Errors: 0, Warnings: 1

@@ -3,72 +3,72 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -3.999
-TNS   : -50.343
+Slack : -3.969
+TNS   : -69.792
 
 Type  : Slow 1200mV 85C Model Setup 'Compteur26bit:inst|ledsig'
-Slack : -0.234
-TNS   : -0.633
-
-Type  : Slow 1200mV 85C Model Hold 'Compteur26bit:inst|ledsig'
-Slack : 0.403
-TNS   : 0.000
+Slack : -0.230
+TNS   : -0.642
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.441
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Compteur26bit:inst|ledsig'
+Slack : 0.402
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -37.695
+TNS   : -56.970
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Compteur26bit:inst|ledsig'
 Slack : -1.285
 TNS   : -5.140
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.590
-TNS   : -42.689
+Slack : -3.578
+TNS   : -59.393
 
 Type  : Slow 1200mV 0C Model Setup 'Compteur26bit:inst|ledsig'
-Slack : -0.108
-TNS   : -0.269
+Slack : -0.112
+TNS   : -0.283
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.353
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'Compteur26bit:inst|ledsig'
 Slack : 0.354
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.400
-TNS   : 0.000
-
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -37.695
+TNS   : -56.970
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Compteur26bit:inst|ledsig'
 Slack : -1.285
 TNS   : -5.140
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.574
-TNS   : -12.047
+Slack : -1.563
+TNS   : -15.298
 
 Type  : Fast 1200mV 0C Model Setup 'Compteur26bit:inst|ledsig'
 Slack : 0.395
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.181
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'Compteur26bit:inst|ledsig'
 Slack : 0.181
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.199
-TNS   : 0.000
-
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -37.913
+TNS   : -57.359
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Compteur26bit:inst|ledsig'
 Slack : -1.000

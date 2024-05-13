@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri May 03 08:29:06 2024
+Analysis & Synthesis Status : Successful - Mon May 13 08:49:08 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : TP_Codec_audio
 Top-level Entity Name : TP4_CODEC_audio
 Family : Cyclone IV E
-Total logic elements : 58
-    Total combinational functions : 58
-    Dedicated logic registers : 31
-Total registers : 31
-Total pins : 13
+Total logic elements : 77
+    Total combinational functions : 73
+    Dedicated logic registers : 46
+Total registers : 46
+Total pins : 14
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
